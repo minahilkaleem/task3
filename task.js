@@ -1,20 +1,14 @@
-function removeDuplicates(size,arr)
-{
-    let j = 0;
-    for (let i = 0; i < size; i++) {
-        if (arr[i] == arr[i + 1]) {
-            let x = i;
-            for (let k = 0; k < 2; k++) {
-                j = 0;
-                for (j = x; j < size; j++) {
-                    arr[j] = arr[j + 1];
-                }
-                arr[j] = '\0';
-                size--;
-            }
-            i = 0;
+
+function RemoveDuplicates(array){
+    let uniqueElement = [];
+    
+    // Loop through array values
+    for(i=0; i < array.length; i++){
+        if(array.indexOf(array[i]) === -1) {
+            uniqueElement.push(array[i]);
         }
     }
+    return uniqueElement;
 }
 
 function reverseArray(arr) {
@@ -25,6 +19,37 @@ function reverseArray(arr) {
   return reversed;
 }
 
+function eliminateDuplicates(arr) {
+    let out = [], obj ={};
+  
+    for (i = 0; i <arr.length; i++) {
+      obj[arr[i]] = 0;
+    }
+    for (i in obj) {
+      out.push(i);
+    }
+    return out;
+  }
+
+  function duplicateInArray(array) {
+    let object = {};
+    let result = [];
+
+    array.forEach(function (item) {
+      if(!object[item])
+          object[item] = 0;
+        object[item] += 1;
+    })
+
+    for (var prop in object) {
+       if(object[prop] >= 2) {
+           result.push(prop);
+       }
+    }
+
+    return result;
+
+}
 function sorting() {
     let x,i,count = 10;
     let arr =[1,2,3,4,2,1,9];
